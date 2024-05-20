@@ -32,4 +32,3 @@ export const foundPersonSchema = joi.object({
     "string.custom": "هوية الكائن غير صالحة."
   })
 }).required();
-

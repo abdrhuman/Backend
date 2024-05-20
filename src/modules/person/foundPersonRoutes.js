@@ -11,19 +11,19 @@ const router = Router();
 const fileUpload = multerCloudFunction(); // استخدام multerCloudFunction لتهيئة تحميل الملفات
 
 // إضافة مسار لحذف شخص معثور عليه
-router.get('/found/:id', getFoundPersonById);
+router.get('/lost/:id', getFoundPersonById);
 
 
 
   
   
 // استخدام fileUpload.single('image') لتحميل ملف الصورة فقط
-router.post("/foundPersons", isAuthenticated, isAuthorized('user'), fileUpload.single('image'), isValid(foundPersonSchema), createFoundPerson);
+router.post("/create", isAuthenticated, isAuthorized('user'), fileUpload.single('image'), isValid(foundPersonSchema), createFoundPerson);
 
 // مسار للحصول على كل الأشخاص المعثور عليهم
-router.get('/foundPersons', getAllFoundPersons);
+router.get('/allusers', getAllFoundPersons);
 
-router.delete('/found/:id', deleteFoundPersonById);
+router.delete('/:id', deleteFoundPersonById);
 
 
 export default router;
