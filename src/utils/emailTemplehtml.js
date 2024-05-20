@@ -106,7 +106,7 @@ export const signUpTemp = (link) =>
     <table border="0" cellpadding="0" cellspacing="0">
       <tr>
         <td class="email-header">
-          <img src="https://res.cloudinary.com/ddajommsw/image/upload/v1670703716/Screenshot_1100_yne3vo.png">
+          <img src="https://res.cloudinary.com/dyko7mcyi/image/upload/v1716234270/OIP_yhkihf.jpg">
         </td>
       </tr>
       <tr>
@@ -134,11 +134,11 @@ export const signUpTemp = (link) =>
       <tr>
         <td>
           <div class="social-icons">
-            <a href="https://www.facebook.com/moahamd.ibrahem/" target="_blank">
+            <a href="/" target="_blank">
               <img src="https://img.freepik.com/free-icon/facebook_318-194827.jpg" alt="Facebook">
             </a>
-            <a href="https://www.linkedin.com/in/mohamed-ibrahem-63446322a" target="_blank">
-              <img src="https://cdn1.iconfinder.com/data/icons/logotypes/32/circle-linkedin-512.png" alt="LinkedIn">
+            <a href="" target="_blank">
+              <img src="" alt="LinkedIn">
             </a>
           </div>
         </td>
