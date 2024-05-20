@@ -16,7 +16,7 @@ export const signUpTemp = (link) =>
     }
 
     .container {
-      background-color: antiquewhite;
+      background-color: SlateBlue;
       border-radius: 10px;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
       padding: 30px;
@@ -45,20 +45,22 @@ export const signUpTemp = (link) =>
     }
 
     .email-header {
-      background-color: #630E2B;
+      background-color: DodgerBlue;
       height: 100px;
       font-size: 50px;
-      color: #fff;
+      color: red;
     }
 
     .email-header img {
       width: 50px;
       height: 50px;
+      color: red;
+      background-color: DodgerBlue;
     }
 
     h1.email-title {
       padding-top: 25px;
-      color: #630E2B;
+      color: SlateBlue;
     }
 
     a.verify-email-btn {
@@ -68,8 +70,8 @@ export const signUpTemp = (link) =>
       font-size: 20px;
 
       border: 0;
-      color: #fff;
-      background-color: #630E2B;
+      color: white;
+      background-color: DodgerBlue;
       text-decoration: none;
     }
 
@@ -87,7 +89,7 @@ export const signUpTemp = (link) =>
 
     h3.stay-in-touch {
       margin-top: 10px;
-      color: #000;
+      color: SlateBlue;
     }
   </style>
 </head>
@@ -132,16 +134,7 @@ export const signUpTemp = (link) =>
         </td>
       </tr>
       <tr>
-        <td>
-          <div class="social-icons">
-            <a href="/" target="_blank">
-              <img src="https://img.freepik.com/free-icon/facebook_318-194827.jpg" alt="Facebook">
-            </a>
-            <a href="" target="_blank">
-              <img src="" alt="LinkedIn">
-            </a>
-          </div>
-        </td>
+        
       </tr>
     </table>
   </div>
