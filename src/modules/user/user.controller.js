@@ -12,16 +12,26 @@ import cloudinary from "../../utils/cloud.js";
 
 // تسجيل مستخدم جديد
 export const register = asyncHandler(async (req, res, next) => {
-    const { userName, email, password } = req.body;
+    const { userName, email, password, confirmPassword } = req.body;
+
     // التحقق مما إذا كان البريد الإلكتروني مسجل بالفعل
     const isUser = await User.findOne({ email });
     if (isUser) return next(new Error("Email already registered!", { cause: 409 }));
 
+    // التحقق من وجود كلمة المرور
     if (!password) {
         return next(new Error('Password is required!'));
     }
+
+    // التحقق من تطابق كلمة المرور مع تأكيد كلمة المرور
+    if (password !== confirmPassword) {
+        return next(new Error('Passwords do not match!'));
+    }
+
+    // تشفير كلمة المرور
     const hashPassword = bcryptjs.hashSync(password, Number(process.env.SALT_ROUND) || 10);
-    
+
+    // إنشاء رمز التنشيط
     const activationCode = crypto.randomBytes(64).toString("hex");
 
     // إنشاء مستخدم جديد في قاعدة البيانات
@@ -30,18 +40,17 @@ export const register = asyncHandler(async (req, res, next) => {
         email,
         password: hashPassword,
         activationCode,
-
     });
 
     // إنشاء رابط التنشيط
     const link = `${req.protocol}://${req.headers.host}/auth/confirmEmail/${activationCode}`;
+
     // إرسال رسالة البريد الإلكتروني لتنشيط الحساب
     const isSent = await sendEmail({ to: email, subject: "Activation Account", html: signUpTemp(link) });
 
     // الرد بنجاح إذا تم إرسال البريد الإلكتروني بنجاح
     return isSent ? res.json({ success: true, message: 'Please review your email' }) : next(new Error('Something went wrong!'));
 });
-
 // تنشيط الحساب
 export const confirmEmail = asyncHandler(async (req, res) => {
     // استخراج رمز التنشيط من معلمة الطلب (التي تم تمريرها كجزء من الرابط)
